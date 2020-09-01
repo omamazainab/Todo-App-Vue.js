@@ -1,49 +1,50 @@
 <template>
   <div id="app">
-    <Todos v-bind:todos="todos" v-on:markCompleted="$emit(markCompleted)" />
+    <Todos v-bind:todos="todos" />
   </div>
 </template>
 
 <script>
-import Todos from "./components/Todo";
+
+import Todos from './components/Todos'
+
 export default {
-  name: "App",
+  name: "app",
   components: {
-    Todos,
+    Todos
   },
-  data() {
+  data(){
     return {
       todos: [
         {
           id: 1,
-          task: "todo 1",
-          completed: true,
+          title: 'Go workout',
+          completed: false
         },
         {
           id: 2,
-          task: "todo 2",
-          completed: false,
+          title: 'Do laundry',
+          completed: false
         },
         {
           id: 3,
-          task: "todo 3",
-          completed: false,
+          title: 'Cook food',
+          completed: false
         },
+        {
+          id: 4,
+          title: 'Clean up room',
+          completed: false
+        },
+        {
+          i: 5,
+          title: 'Finish work',
+          completed: false
+        }
       ],
-    };
-  },
-  methods: {
-    markCompleted() {
-      console.log("object");
-    },
-  },
+    }
+  }
 };
 </script>
-
 <style>
-* {
-  box-sizing: border-box;
-  margin: 0%;
-  padding: 0%;
-}
 </style>
