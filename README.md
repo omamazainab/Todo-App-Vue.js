@@ -22,3 +22,9 @@ yarn lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+## I'm going to add these functionalities in it 
+* check all
+* how many items left
+* active todos and completed todos
+* clear completed todos
