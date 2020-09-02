@@ -15,9 +15,9 @@ export default {
           e.preventDefault();
 
           const newTodoObj = {
-          
-          title: this.title,
-          completed: false}
+            title: this.title,
+            completed: false
+          }
 
           this.$emit('on-new-todo',newTodoObj);
           this.title='';

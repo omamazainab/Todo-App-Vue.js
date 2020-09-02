@@ -8,6 +8,7 @@
         :completed="todo.completed"
         @on-toggle="toggleTodo(todo)"
         @on-delete="deleteTodo(todo)"
+        @on-edit="editTodo(todo,$event)"
       />
       <AddTodo @on-new-todo="addTodo($event)" />
     </ul>
@@ -61,6 +62,9 @@ export default {
     deleteTodo(deletedTodo) {
       this.todos = this.todos.filter((todo) => todo !== deletedTodo);
     },
+    editTodo(todo,title){
+        todo.title = title;
+    }
   },
 };
 </script>
