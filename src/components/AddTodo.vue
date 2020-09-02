@@ -13,15 +13,15 @@ export default {
   name: "AddTodo",
   methods:{
       addTodo(e){
-            e.preventDefault();
+          e.preventDefault();
 
-            const newTodoObj = {
-            id: uuid.v4(),
-            title: this.title,
-            completed: false}
+          const newTodoObj = {
+          id: uuid.v4(),
+          title: this.title,
+          completed: false}
 
-            this.$emit('add-todo',newTodoObj);
-            this.title='';
+          this.$emit('add-todo',newTodoObj);
+          this.title='';
       }
   }
 };
