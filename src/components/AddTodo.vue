@@ -7,7 +7,6 @@
 
 <script>
 
-import { uuid } from 'vue-uuid'
 
 export default {
   name: "AddTodo",
@@ -16,11 +15,11 @@ export default {
           e.preventDefault();
 
           const newTodoObj = {
-          id: uuid.v4(),
+          
           title: this.title,
           completed: false}
 
-          this.$emit('add-todo',newTodoObj);
+          this.$emit('on-new-todo',newTodoObj);
           this.title='';
       }
   }

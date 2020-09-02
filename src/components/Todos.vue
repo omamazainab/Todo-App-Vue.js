@@ -1,53 +1,50 @@
 <template>
   <div>
     <ul>
-      
-        <TodoItem
-          v-for="todo in todos"
-          :key="todo.id"
-          :title="todo.title"
-          :completed="todo.completed"
-          @on-toggle="toggleTodo(todo)"
-        />
-      
+      <TodoItem
+        v-for="(todo,index) in todos"
+        :key="index"
+        :title="todo.title"
+        :completed="todo.completed"
+        @on-toggle="toggleTodo(todo)"
+        @on-delete="deleteTodo(todo)"
+      />
+      <AddTodo @on-new-todo="addTodo($event)" />
     </ul>
   </div>
 </template>
 
 <script>
 import TodoItem from "./TodoItem";
+import AddTodo from "./AddTodo";
 
 export default {
   name: "Todos",
   components: {
     TodoItem,
+    AddTodo,
   },
 
   data() {
     return {
       todos: [
         {
-          id: 1,
           title: "Go workout",
           completed: true,
         },
         {
-          id: 2,
           title: "Do laundry",
           completed: false,
         },
         {
-          id: 3,
           title: "Cook food",
           completed: false,
         },
         {
-          id: 4,
           title: "Clean up room",
           completed: false,
         },
         {
-          i: 5,
           title: "Finish work",
           completed: false,
         },
@@ -55,11 +52,14 @@ export default {
     };
   },
   methods: {
-    addTodo(newTodoObj) {
-      this.todos = [...this.todos, newTodoObj];
+    addTodo(newTodo) {
+      this.todos.push(newTodo);
     },
     toggleTodo(todo) {
       todo.completed = !todo.completed;
+    },
+    deleteTodo(deletedTodo) {
+      this.todos = this.todos.filter((todo) => todo !== deletedTodo);
     },
   },
 };
